@@ -235,19 +235,12 @@
       </Pane>
       <Pane fx:id="paneListar" layoutY="95.0" prefHeight="319.0" prefWidth="496.0" style="-fx-background-color: #0b2412;" visible="false">
          <children>
-            <Separator layoutX="14.0" layoutY="156.0" opacity="0.7" prefHeight="5.0" prefWidth="475.0" />
             <Label layoutX="21.0" layoutY="24.0" text="Listar Camaras Alquiladas" textFill="WHITE">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="180.0" text="Listar Camaras en Reparacion" textFill="WHITE">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextArea fx:id="textListaCamarasAlquiladas" layoutX="263.0" layoutY="24.0" onMouseClicked="#onListarCamarasAlquiladaClick" prefHeight="118.0" prefWidth="200.0" />
-            <TextArea fx:id="textListaCamarasReparacion" layoutX="263.0" layoutY="180.0" prefHeight="118.0" prefWidth="200.0" />
+            <TextArea fx:id="textListaCamarasAlquiladas" layoutX="208.0" layoutY="24.0" onMouseClicked="#onListarCamarasAlquiladaClick" prefHeight="255.0" prefWidth="255.0" />
          </children>
       </Pane>
    </children>

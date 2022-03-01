@@ -99,7 +99,6 @@ public class TiendaController implements Initializable {
     private TextField formatoPelicula;
 
     @FXML TextArea textListaCamarasAlquiladas;
-    @FXML TextArea textListaCamarasReparacion;
 
     @FXML
     private Button crearClienteButton;
@@ -113,11 +112,10 @@ public class TiendaController implements Initializable {
     private Button crearPeliculaButton;
 
     private Tienda tienda;
-    private Camara camara;
     private Pelicula pelicula;
     private int cantClientes;
     private int cantCamaras;
-    private String listar;
+    private String listar="Camaras Alquiladas";
 
     ObservableList<String> comboDIContent =
             FXCollections.observableArrayList(
@@ -400,7 +398,7 @@ public class TiendaController implements Initializable {
                 FXCollections.observableArrayList(
                 );
         comboCamarasAlquiladasContent.addAll(comboBoxCamara3.getValue());
-        listar = listar +"\n"+comboCamarasAlquiladasContent.toString();
+        listar +="\n* "+comboCamarasAlquiladasContent.toString().replace("[", "").replace("]", "");
     }
 
     public void onListarCamarasAlquiladaClick ( MouseEvent event) {
