@@ -227,10 +227,10 @@
             </Label>
             <Label layoutX="26.0" layoutY="89.0" text="Cliente" textFill="WHITE" />
             <Label layoutX="24.0" layoutY="144.0" text="Camara" textFill="WHITE" />
-            <Button layoutX="216.0" layoutY="207.0" mnemonicParsing="false" text="ALQUILAR" />
+            <Button layoutX="216.0" layoutY="207.0" mnemonicParsing="false" onMouseClicked="#onAlquilarCamaraButtonClick" text="ALQUILAR" />
             <Separator layoutX="14.0" layoutY="50.0" opacity="0.7" prefHeight="5.0" prefWidth="475.0" />
-            <ComboBox layoutX="148.0" layoutY="85.0" prefWidth="150.0" promptText="Seleccionar Cliente" />
-            <ComboBox layoutX="148.0" layoutY="140.0" prefWidth="150.0" promptText="Asignar Camara" />
+            <ComboBox fx:id="comboBoxCliente" layoutX="148.0" layoutY="85.0" prefWidth="150.0" promptText="Seleccionar Cliente" />
+            <ComboBox fx:id="comboBoxCamara3" layoutX="148.0" layoutY="140.0" prefWidth="150.0" promptText="Asignar Camara" />
          </children>
       </Pane>
       <Pane fx:id="paneListar" layoutY="95.0" prefHeight="319.0" prefWidth="496.0" style="-fx-background-color: #0b2412;" visible="false">
@@ -246,8 +246,8 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Pane layoutX="252.0" layoutY="14.0" prefHeight="128.0" prefWidth="227.0" style="-fx-background-color: white; -fx-border-color: #abedbd;" />
-            <Pane layoutX="252.0" layoutY="177.0" prefHeight="128.0" prefWidth="227.0" style="-fx-background-color: white; -fx-border-color: #abedbd;" />
+            <TextArea fx:id="textListaCamarasAlquiladas" layoutX="263.0" layoutY="24.0" onMouseClicked="#onListarCamarasAlquiladaClick" prefHeight="118.0" prefWidth="200.0" />
+            <TextArea fx:id="textListaCamarasReparacion" layoutX="263.0" layoutY="180.0" prefHeight="118.0" prefWidth="200.0" />
          </children>
       </Pane>
    </children>

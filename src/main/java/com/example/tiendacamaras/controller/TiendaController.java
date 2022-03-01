@@ -64,6 +64,8 @@ public class TiendaController implements Initializable {
     private ComboBox<String> comboBoxCamara2;
     @FXML
     private ComboBox<String> comboBoxModelo;
+    @FXML private ComboBox<String> comboBoxCliente;
+    @FXML private ComboBox<String> comboBoxCamara3;
 
     @FXML
     private TextField nombreTienda;
@@ -96,6 +98,9 @@ public class TiendaController implements Initializable {
     @FXML
     private TextField formatoPelicula;
 
+    @FXML TextArea textListaCamarasAlquiladas;
+    @FXML TextArea textListaCamarasReparacion;
+
     @FXML
     private Button crearClienteButton;
     @FXML
@@ -112,6 +117,7 @@ public class TiendaController implements Initializable {
     private Pelicula pelicula;
     private int cantClientes;
     private int cantCamaras;
+    private String listar;
 
     ObservableList<String> comboDIContent =
             FXCollections.observableArrayList(
@@ -270,6 +276,11 @@ public class TiendaController implements Initializable {
 
             Cliente cliente = new Cliente(nombreCliente.getText(),tipoDocumentoCliente.getValue(),numeroDocumentoCliente.getText());
             tienda.asignarClientes(cliente);
+            ObservableList<String> comboClienteContent =
+                    FXCollections.observableArrayList(
+                    );
+            comboClienteContent.addAll(numeroDocumentoCliente.getText());
+            comboBoxCliente.getItems().addAll(comboClienteContent);
         }
     }
 
@@ -291,6 +302,7 @@ public class TiendaController implements Initializable {
             comboCamaraContent.addAll(nombreCamara.getText());
             comboBoxCamara1.getItems().addAll(comboCamaraContent);
             comboBoxCamara2.getItems().addAll(comboCamaraContent);
+            comboBoxCamara3.getItems().addAll(comboCamaraContent);
         }
     }
 
@@ -375,7 +387,24 @@ public class TiendaController implements Initializable {
 
     public void onAsociarCamaraPeliculaButtonClick ( MouseEvent event) {
         tienda.asignarPeliculaACamara(comboBoxCamara2.getValue(),comboBoxPelicula2.getValue(),sencibilidadPelicula.getText(),formatoPelicula.getText());
-        System.out.println(tienda.asignarPeliculaACamara(comboBoxCamara2.getValue(),comboBoxPelicula2.getValue(),sencibilidadPelicula.getText(),formatoPelicula.getText()));
+    }
+
+    public void onAlquilarCamaraButtonClick ( MouseEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("ANUNCIO");
+        alert.setHeaderText(null);
+        alert.setContentText("se alquila la camara "+comboBoxCamara3.getValue()+" al cliente con el numero de documento "+comboBoxCliente.getValue());
+
+        alert.showAndWait();
+        ObservableList<String> comboCamarasAlquiladasContent =
+                FXCollections.observableArrayList(
+                );
+        comboCamarasAlquiladasContent.addAll(comboBoxCamara3.getValue());
+        listar = listar +"\n"+comboCamarasAlquiladasContent.toString();
+    }
+
+    public void onListarCamarasAlquiladaClick ( MouseEvent event) {
+        textListaCamarasAlquiladas.setText(listar);
     }
 
     public void onExitButtonClick (MouseEvent event) {
