@@ -1,6 +1,8 @@
 package com.example.tiendacamaras.model;
 
-public class Cliente {
+import java.util.ArrayList;
+
+public class Cliente extends ArrayList {
 
     private String nombre;
     private String tipoDocumento;

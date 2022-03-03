@@ -1,19 +1,21 @@
 package com.example.tiendacamaras.model;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Camara {
     private Marca marca;
     private Modelo modelo;
-    private Pelicula[] peliculas;
+    private ArrayList peliculas;
     private boolean soporte;
     String nombre;
 
-    public Camara(int peliculas) {
-        this.peliculas = new Pelicula[peliculas];
+    public Camara(String nombre) {
+        this.nombre = nombre;
+        this.peliculas = new ArrayList();
     }
 
     public Camara() {
+        this.peliculas = new ArrayList();
     }
 
     public Marca getMarca() {
@@ -32,11 +34,11 @@ public class Camara {
         this.modelo = modelo;
     }
 
-    public Pelicula[] getPeliculas() {
+    public ArrayList getPeliculas() {
         return peliculas;
     }
 
-    public void setPeliculas(Pelicula[] peliculas) {
+    public void setPeliculas(ArrayList peliculas) {
         this.peliculas = peliculas;
     }
 
@@ -58,14 +60,8 @@ public class Camara {
 
     public boolean asignarPelicula(String nombre, String sencibilidad, String formato) {
         boolean estado = false;
-        for (int i = 0; i < peliculas.length; i++) {
-            if(peliculas[i]==null){
-                Pelicula pelicula=new Pelicula(nombre, sencibilidad, formato);
-                peliculas[i]=pelicula;
-                estado=true;
-                break;
-            }
-        }
+        this.peliculas.add(new Pelicula(nombre, sencibilidad, formato));
+        estado = true;
         return estado;
     }
 
@@ -85,12 +81,10 @@ public class Camara {
 
     @Override
     public String toString() {
-        return "Camara{" +
-                "marcas=" + marca +
-                ", modelos=" + modelo +
-                ", peliculas=" + Arrays.toString(peliculas) +
-                ", soporte=" + soporte +
-                ", nombre='" + nombre + '\'' +
-                '}';
+        return "marcas " + marca +
+                "\nmodelos " + modelo +
+                "\npeliculas " + peliculas +
+                "\nsoporte " + soporte +
+                "\nnombre " + nombre;
     }
 }

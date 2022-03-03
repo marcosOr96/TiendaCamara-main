@@ -293,7 +293,7 @@ public class TiendaController implements Initializable {
         }
 
         else{
-            tienda.crearCamaras(Boolean.parseBoolean(soporteCamara.getText()),nombreCamara.getText(),2);
+            tienda.crearCamaras(nombreCamara.getText());
             ObservableList<String> comboCamaraContent =
                     FXCollections.observableArrayList(
                     );
@@ -338,9 +338,6 @@ public class TiendaController implements Initializable {
         }
 
         else{
-            Camara camara = new Camara();
-            Marca marca = new Marca(nombreMarca.getText(),direccionMarca.getText());
-            camara.asignarMarca(marca);
             ObservableList<String> comboMarcaContent =
                     FXCollections.observableArrayList(
                     );
@@ -361,7 +358,7 @@ public class TiendaController implements Initializable {
         }
 
         else{
-            Camara camara = new Camara(2);
+            Camara camara = new Camara();
             camara.asignarPelicula(nombrePelicula.getText(),sencibilidadPelicula.getText(),formatoPelicula.getText());
             ObservableList<String> comboPeliculaContent =
                     FXCollections.observableArrayList(
